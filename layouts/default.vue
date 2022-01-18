@@ -1,13 +1,13 @@
 <template>
 <main id="main-container" class="text-white bg-black min-v-screen">
     <div id="header">
-        <div class="header">
-            <h1 class="text-5xl">XOX</h1>
+        <div class="header border-dotted border-b-2">
+            <h1 class="text-5xl">*></h1>
             <p>rainqubit</p>
         </div>
     </div>
     <div id="sidebar">
-        <h1>sidebar</h1>
+        <Sidebar />
     </div>
     <div id="content" class="content">
         <Nuxt />
@@ -17,8 +17,19 @@
 </template>
 
 <script>
+import Sidebar from "../components/Sidebar..vue";
+
 export default {
     name: "Default",
+    computed: {
+        links() {
+            return this.$store.state.navs.links;
+        }
+    },
+    mounted() {
+        console.log(this.$store.state.navs.links);
+    },
+    components: { Sidebar }
 }
 </script>
 
@@ -43,6 +54,7 @@ export default {
 
 #sidebar{
     grid-area: sidebar;
+    padding: 1rem;
 }
 
 #content{
@@ -64,7 +76,6 @@ export default {
 .content {
     padding: 1rem;
 }
-
 
 </style>
 
