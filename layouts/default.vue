@@ -1,19 +1,18 @@
 <template>
-<main id="main-container" class="text-white bg-black min-v-screen">
-    <div id="header">
-        <div class="header border-dotted border-b-2">
-            <h1 class="text-5xl">*></h1>
-            <p>rainqubit</p>
+    <main id="main-container" class="text-white bg-black min-v-screen">
+        <div id="header">
+            <div class="header border-dotted border-b-2">
+                <h1 class="text-5xl">*></h1>
+                <p>rainqubit</p>
+            </div>
         </div>
-    </div>
-    <div id="sidebar">
-        <Sidebar />
-    </div>
-    <div id="content" class="content">
-        <Nuxt />
-    </div>
-</main>
-
+        <div id="sidebar">
+            <Sidebar />
+        </div>
+        <div id="content" class="content">
+            <Nuxt />
+        </div>
+    </main>
 </template>
 
 <script>
@@ -26,42 +25,39 @@ export default {
             return this.$store.state.navs.links;
         }
     },
-    mounted() {
-        console.log(this.$store.state.navs.links);
-    },
     components: { Sidebar }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;500;600;700&display=swap");
 
-#main-container{
-    font-family: 'Overpass Mono', monospace;
+#main-container {
+    font-family: "Overpass Mono", monospace;
     display: grid;
-    grid-template: 
-    "header header"
-    "sidebar content";
+    grid-template:
+        "header header"
+        "sidebar content";
     grid-template-columns: 10rem auto;
     grid-template-rows: 5rem auto;
     padding: 0 15rem 0 15rem;
     min-height: 100vh;
 }
 
-#header{
+#header {
     grid-area: header;
 }
 
-#sidebar{
+#sidebar {
     grid-area: sidebar;
     padding: 1rem;
 }
 
-#content{
+#content {
     grid-area: content;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -76,6 +72,5 @@ export default {
 .content {
     padding: 1rem;
 }
-
 </style>
 
